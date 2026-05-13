@@ -8,7 +8,368 @@
 <link rel="canonical" href="page-info-utili.html">
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Condensed:wght@700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
-<link rel="stylesheet" href="assets/css/page-info-utili.css">
+<style>
+/* ══ INFO UTILI PAGE ══════════════════════════════════════════════════════ */
+
+/* Hero */
+.iu-hero{
+  background:linear-gradient(135deg,#1e3a6e 0%,#2a5298 100%);
+  padding:60px 0 52px;
+  position:relative;
+  overflow:hidden;
+}
+.iu-hero::before{
+  content:'';
+  position:absolute;inset:0;
+  background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+.iu-hero-in{
+  max-width:1240px;margin:0 auto;padding:0 40px;
+  position:relative;z-index:1;
+}
+.iu-breadcrumb{
+  font-size:.72rem;font-weight:500;color:rgba(255,255,255,.6);
+  text-transform:uppercase;letter-spacing:.12em;margin-bottom:14px;
+}
+.iu-breadcrumb a{color:rgba(255,255,255,.6);text-decoration:none}
+.iu-breadcrumb a:hover{color:#f5a623}
+.iu-hero h1{
+  font-family:'Roboto Condensed',sans-serif;
+  font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:800;
+  color:#fff;line-height:1.15;margin-bottom:12px;
+  text-transform:uppercase;letter-spacing:.02em;
+}
+.iu-sub{
+  font-size:.95rem;color:rgba(255,255,255,.78);
+  max-width:640px;line-height:1.7;font-weight:300;
+}
+
+/* Section blocks */
+.iu-block{
+  padding:64px 0;
+  background:#fff;
+}
+.iu-block.alt{
+  background:#f4f6fb;
+}
+.iu-block.dark{
+  background:linear-gradient(135deg,#1e3a6e 0%,#162f58 100%);
+}
+.iu-wrap{
+  max-width:1240px;margin:0 auto;padding:0 40px;
+}
+.iu-stitle{
+  font-family:'Roboto Condensed',sans-serif;
+  font-size:1.35rem;font-weight:800;
+  color:#1e3a6e;text-transform:uppercase;
+  letter-spacing:.06em;margin-bottom:32px;
+  padding-bottom:12px;
+  border-bottom:3px solid #1e3a6e;
+  display:inline-block;
+}
+.iu-block.alt .iu-stitle{color:#1e3a6e;border-color:#1e3a6e}
+
+/* Numeri Utili */
+.iu-numeri-cols{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+  gap:16px;
+}
+.iu-num-item{
+  display:flex;align-items:flex-start;gap:16px;
+  background:#fff;border-radius:10px;
+  padding:20px 22px;
+  box-shadow:0 2px 12px rgba(0,0,0,.07);
+  border-left:4px solid #1e3a6e;
+  transition:transform .2s,box-shadow .2s;
+}
+.iu-num-item:hover{
+  transform:translateY(-2px);
+  box-shadow:0 6px 24px rgba(0,48,135,.14);
+}
+.iu-ni-blue{border-left-color:#1e3a6e}
+.iu-ni-orange{border-left-color:#d35400}
+.iu-ni-green{border-left-color:#27ae60}
+
+.iu-block.alt .iu-num-item{background:#fff}
+
+.iu-num-icon{
+  width:40px;height:40px;border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+.iu-ni-blue .iu-num-icon{background:rgba(30,58,110,.1)}
+.iu-ni-orange .iu-num-icon{background:rgba(211,84,0,.1)}
+.iu-ni-green .iu-num-icon{background:rgba(39,174,96,.1)}
+.iu-num-icon svg{
+  width:20px;height:20px;
+  fill:none;stroke-width:2;
+}
+.iu-ni-blue .iu-num-icon svg{stroke:#1e3a6e;fill:#1e3a6e}
+.iu-ni-orange .iu-num-icon svg{stroke:#d35400;fill:#d35400}
+.iu-ni-green .iu-num-icon svg{stroke:#27ae60;fill:none;stroke-width:2}
+
+.iu-num-label{
+  font-size:.68rem;font-weight:700;
+  text-transform:uppercase;letter-spacing:.1em;
+  color:#6b7280;margin-bottom:4px;
+}
+.iu-num-val{
+  font-family:'Roboto Condensed',sans-serif;
+  font-size:1.05rem;font-weight:700;
+  display:flex;flex-wrap:wrap;gap:8px;
+  margin-bottom:4px;
+}
+.iu-num-val a{
+  color:#1e3a6e;text-decoration:none;
+  transition:color .15s;
+}
+.iu-num-val a:hover{color:#f5a623}
+.iu-ni-orange .iu-num-val a{color:#d35400}
+.iu-ni-green .iu-num-val a{color:#27ae60}
+.iu-num-desc{
+  font-size:.76rem;color:#6b7280;
+  line-height:1.55;
+}
+
+/* Documenti */
+.iu-doc-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+  gap:14px;
+  margin-bottom:14px;
+}
+.iu-doc-card{
+  display:flex;flex-direction:column;align-items:center;
+  text-align:center;
+  background:#fff;border-radius:10px;
+  padding:28px 20px 22px;
+  box-shadow:0 2px 10px rgba(0,0,0,.07);
+  border:1.5px solid #dde3ef;
+  text-decoration:none;
+  transition:all .22s;
+  gap:10px;
+}
+.iu-doc-card:hover{
+  border-color:#1e3a6e;
+  box-shadow:0 6px 24px rgba(30,58,110,.15);
+  transform:translateY(-3px);
+}
+.iu-doc-icon svg{
+  width:36px;height:36px;
+  fill:none;stroke:#1e3a6e;stroke-width:1.8;
+}
+.iu-doc-title{
+  font-size:.84rem;font-weight:700;
+  color:#1a1a2e;line-height:1.4;flex:1;
+}
+.iu-doc-dl{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:.72rem;font-weight:700;
+  color:#1e3a6e;text-transform:uppercase;
+  letter-spacing:.06em;
+  background:#e8eef8;border-radius:4px;
+  padding:6px 12px;
+  transition:background .2s;
+}
+.iu-doc-card:hover .iu-doc-dl{
+  background:#1e3a6e;color:#fff;
+}
+.iu-doc-dl svg{
+  width:13px;height:13px;
+  fill:none;stroke:currentColor;stroke-width:2.5;
+}
+
+/* App Unipol */
+.iu-app{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:32px;
+  background:linear-gradient(135deg,#f4f6fb,#e8eef8);
+  border-radius:14px;padding:36px 40px;
+  border:1.5px solid #dde3ef;
+}
+.iu-app h3{
+  font-family:'Roboto Condensed',sans-serif;
+  font-size:1.4rem;font-weight:800;
+  color:#1e3a6e;text-transform:uppercase;
+  margin-bottom:10px;
+}
+.iu-app p{
+  font-size:.88rem;color:#4b5563;
+  line-height:1.7;max-width:500px;
+}
+.iu-app-btns{
+  display:flex;flex-direction:column;gap:10px;flex-shrink:0;
+}
+.iu-app-btn{
+  display:inline-flex;align-items:center;gap:10px;
+  background:#1e3a6e;color:#fff;
+  border-radius:8px;padding:12px 22px;
+  text-decoration:none;
+  font-weight:700;font-size:.82rem;
+  letter-spacing:.04em;
+  white-space:nowrap;
+  transition:background .2s,transform .15s;
+  min-width:160px;
+  justify-content:center;
+}
+.iu-app-btn:hover{background:#162f58;transform:translateY(-1px)}
+.iu-app-btn svg{width:18px;height:18px;fill:#fff;flex-shrink:0}
+
+/* Area Clienti links */
+.iu-link-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
+  gap:12px;
+}
+.iu-link-item{
+  display:flex;align-items:center;
+  background:#fff;border-radius:8px;
+  padding:16px 20px;
+  font-size:.86rem;font-weight:600;
+  color:#1e3a6e;text-decoration:none;
+  border:1.5px solid #dde3ef;
+  transition:all .2s;
+  gap:10px;
+}
+.iu-link-item::before{
+  content:'→';
+  font-weight:700;color:#f5a623;
+  flex-shrink:0;
+}
+.iu-link-item:hover{
+  border-color:#1e3a6e;
+  background:#1e3a6e;
+  color:#fff;
+}
+.iu-link-item:hover::before{color:#f5a623}
+
+/* Form contatti */
+.iu-form-wrap{
+  display:grid;
+  grid-template-columns:1fr 1.1fr;
+  gap:56px;align-items:start;
+}
+.iu-form-info h3{
+  font-family:'Roboto Condensed',sans-serif;
+  font-size:1.3rem;font-weight:800;
+  color:#fff;text-transform:uppercase;
+  margin-bottom:12px;line-height:1.3;
+}
+.iu-form-info p{
+  font-size:.88rem;color:rgba(255,255,255,.72);
+  line-height:1.72;margin-bottom:20px;
+}
+.fi-row{
+  display:flex;align-items:center;gap:10px;
+  margin-bottom:10px;
+}
+.fi-row svg{
+  width:16px;height:16px;
+  fill:rgba(255,255,255,.6);flex-shrink:0;
+}
+.fi-row a{
+  font-size:.86rem;color:rgba(255,255,255,.85);
+  text-decoration:none;font-weight:500;
+}
+.fi-row a:hover{color:#f5a623}
+
+.iu-form-box{
+  background:#fff;border-radius:12px;
+  padding:36px;
+  box-shadow:0 12px 40px rgba(0,0,0,.25);
+}
+.iu-form-box h4{
+  font-family:'Roboto Condensed',sans-serif;
+  font-size:1.1rem;font-weight:800;
+  color:#1e3a6e;text-transform:uppercase;
+  letter-spacing:.05em;margin-bottom:3px;
+}
+.iu-form-sub{
+  font-size:.76rem;color:#9ca3af;
+  margin-bottom:20px;
+}
+.iu-cf-row{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:12px;margin-bottom:12px;
+}
+.iu-cf-group{
+  display:flex;flex-direction:column;gap:5px;
+  margin-bottom:12px;
+}
+.iu-cf-group label{
+  font-size:.7rem;font-weight:700;
+  color:#374151;text-transform:uppercase;
+  letter-spacing:.05em;
+}
+.iu-cf-group input,
+.iu-cf-group textarea{
+  border:1.5px solid #dde3ef;border-radius:6px;
+  padding:10px 14px;font-size:.85rem;
+  font-family:'Roboto',sans-serif;color:#1a1a2e;
+  background:#f9fafb;
+  transition:border .2s,background .2s;
+  outline:none;
+}
+.iu-cf-group input:focus,
+.iu-cf-group textarea:focus{
+  border-color:#1e3a6e;background:#fff;
+}
+.iu-cf-group textarea{
+  resize:vertical;min-height:90px;
+}
+.iu-cf-privacy{
+  display:flex;align-items:flex-start;gap:9px;
+  margin-bottom:18px;
+  font-size:.76rem;color:#6b7280;line-height:1.55;
+}
+.iu-cf-privacy input{
+  width:15px;height:15px;margin-top:2px;
+  accent-color:#1e3a6e;flex-shrink:0;
+}
+.iu-cf-privacy a{color:#1e3a6e}
+.iu-submit{
+  width:100%;
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  background:#f5a623;color:#1e3a6e;
+  font-family:'Roboto',sans-serif;font-weight:700;
+  font-size:.84rem;text-transform:uppercase;
+  letter-spacing:.07em;
+  border:none;border-radius:6px;
+  padding:13px 24px;cursor:pointer;
+  transition:background .2s,transform .15s,box-shadow .2s;
+}
+.iu-submit:hover{
+  background:#e5941e;
+  transform:translateY(-1px);
+  box-shadow:0 4px 18px rgba(245,166,35,.4);
+}
+.iu-submit svg{stroke:currentColor;fill:none}
+
+/* ── RESPONSIVE ──────────────────────────────────────────── */
+@media(max-width:900px){
+  .iu-hero-in{padding:0 20px}
+  .iu-wrap{padding:0 20px}
+  .iu-block{padding:48px 0}
+  .iu-numeri-cols{grid-template-columns:1fr 1fr}
+  .iu-form-wrap{grid-template-columns:1fr;gap:32px}
+  .iu-app{flex-direction:column;align-items:flex-start;padding:28px 24px}
+  .iu-app-btns{flex-direction:row}
+}
+@media(max-width:600px){
+  .iu-hero{padding:40px 0 36px}
+  .iu-block{padding:36px 0}
+  .iu-numeri-cols{grid-template-columns:1fr}
+  .iu-doc-grid{grid-template-columns:1fr 1fr}
+  .iu-link-grid{grid-template-columns:1fr}
+  .iu-cf-row{grid-template-columns:1fr}
+  .iu-app-btns{flex-direction:column}
+  .iu-form-box{padding:22px 16px}
+}
+@media(max-width:400px){
+  .iu-doc-grid{grid-template-columns:1fr}
+}
+</style>
 </head>
 <body>
 <!-- WA FLOAT -->
@@ -33,7 +394,7 @@
             <div class="t-right">
       <a href="index.html">Home</a>
       <a href="index.html#contatti">Contatti</a>
-      <a href="page-info-utili.html">Info Utili</a>
+      <a href="page-info-utili.html" style="color:#f5a623!important">Info Utili</a>
       <a href="page-news.html" class="t-btn-solid">News</a>
     </div>
   </div>
@@ -103,7 +464,7 @@
   <!-- Indirizzo agenzia sotto header -->
   <div class="mnv-address">
     Agenzia Generale 66031 &mdash;
-    <a href="https://maps.app.goo.gl/1pdCAauV5kCiYmm87" target="_blank" rel="noopener">Piazza Unità d’Italia 15A, Palermo</a>
+    <a href="https://maps.app.goo.gl/xx2Zg3boCN2ZGbv77" target="_blank" rel="noopener">Piazza Unità d’Italia 15A, Palermo</a>
   </div>
 
   <!-- Voci menu -->
@@ -267,7 +628,7 @@
       <span class="iu-doc-dl"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Scarica</span>
     </a>
     </div>
-    <p style="font-size:.73rem;color:#9ca3af;margin-top:12px">I PDF vanno caricati nella libreria media WordPress e i link aggiornati.</p>
+    
   </div>
 </div>
 
@@ -319,9 +680,9 @@
         <p>Siamo a tua disposizione per preventivi, consulenze e assistenza. Risponderemo entro 24 ore lavorative.</p>
         <div class="fi-row"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.84 2 2 2 0 012.83 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.09 7.91a16 16 0 006 6l.98-.98a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg> <a href="tel:+390916255950">091 6255950</a></div>
         <div class="fi-row"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> <a href="mailto:agenzia@assicurazionipalermo.net">agenzia@assicurazionipalermo.net</a></div>
-        <div class="fi-row"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg> <a href="https://maps.app.goo.gl/1pdCAauV5kCiYmm87" target="_blank">Piazza Unità d'Italia 15, 15A-B – Palermo</a></div>
+        <div class="fi-row"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg> <a href="https://maps.app.goo.gl/xx2Zg3boCN2ZGbv77" target="_blank">Piazza Unità d'Italia 15, 15A-B – Palermo</a></div>
         <div style="margin-top:20px;border-radius:10px;overflow:hidden">
-          <iframe src="https://maps.google.com/maps?q=Piazza+Unit%C3%A0+D%27Italia+15%2C+Palermo&output=embed" width="100%" height="180" style="border:0;display:block" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mappa RF Assicurazioni"></iframe>
+          <iframe src="https://maps.app.goo.gl/xx2Zg3boCN2ZGbv77&output=embed" width="100%" height="180" style="border:0;display:block" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mappa RF Assicurazioni"></iframe>
         </div>
       </div>
       <div class="iu-form-box">
