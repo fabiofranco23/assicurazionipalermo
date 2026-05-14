@@ -396,7 +396,8 @@ footer{background:var(--blu);padding:44px 0 0}
   .slide-tag{font-size:.62rem;margin-bottom:6px}
   .slide-desc{font-size:.76rem;margin-bottom:14px}
   .btn-slide{font-size:.72rem;padding:9px 16px}
-  .s-arrow{display:none}
+  .s-arrow{display:flex!important;width:32px;height:32px;background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.25)}
+  .s-dots{display:none!important}
   .info-strip{padding:18px 0}
   .info-strip-in h2{font-size:1rem}
   .info-strip-in p{font-size:.8rem}
@@ -441,6 +442,8 @@ footer{background:var(--blu);padding:44px 0 0}
   .lu-icon-grid{gap:12px}
   .lu-icon-box{width:95px;height:95px}
 }
+  .s-dots{display:none!important}
+
 /* Smooth slide-desc bullets */
 .slide-desc i{
   font-style:normal;display:flex;align-items:center;gap:6px;
@@ -1355,9 +1358,9 @@ header{z-index:400!important;position:sticky!important;top:0}
   margin:-22px -24px 14px!important;
   padding:10px 24px!important;
   border-radius:0!important;
-  overflow:hidden!important;
+  overflow:visible!important;
   box-sizing:border-box!important;
-  width:calc(100% + 48px)!important;
+  width:auto!important;
 }
 .prod-card{overflow:hidden!important}
 .prod-card-body{overflow:hidden!important}
