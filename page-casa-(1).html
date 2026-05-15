@@ -8,6 +8,141 @@
 <link rel="canonical" href="index.html">
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Condensed:wght@700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
+<style>
+/* ══ CASA PAGE – Step cards & Contact mobile ══════════════════════════════ */
+
+/* ── Step cards grid ── */
+.casa-steps-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
+  margin-top:36px;
+}
+.casa-step-card{
+  background:rgba(255,255,255,.09);
+  border:1px solid rgba(255,255,255,.15);
+  border-radius:12px;
+  padding:26px 22px 24px;
+  display:flex;flex-direction:column;gap:14px;
+  transition:background .22s,transform .22s,box-shadow .22s;
+  min-height:220px;
+}
+.casa-step-card:hover{
+  background:rgba(255,255,255,.14);
+  transform:translateY(-3px);
+  box-shadow:0 10px 32px rgba(0,0,0,.2);
+}
+.casa-step-top{
+  display:flex;align-items:center;gap:14px;
+}
+.casa-step-num{
+  width:40px;height:40px;border-radius:50%;
+  background:#f5a623;
+  color:#1e3a6e;
+  font-family:'Roboto Condensed',sans-serif;
+  font-size:1.1rem;font-weight:800;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+.casa-step-icon{
+  color:rgba(255,255,255,.75);
+  display:flex;align-items:center;
+}
+.casa-step-card h3{
+  font-family:'Roboto Condensed',sans-serif;
+  font-size:1rem;font-weight:700;
+  color:#fff;text-transform:uppercase;
+  letter-spacing:.04em;margin:0;
+}
+.casa-step-card p{
+  font-size:.86rem;color:rgba(255,255,255,.72);
+  line-height:1.7;margin:0;flex:1;
+}
+
+/* ── Contact section mobile improvements ── */
+@media(max-width:768px){
+  .contact-in{
+    gap:32px!important;
+  }
+  .contact-info-item{
+    margin-bottom:12px;
+  }
+  .contact-form-box{
+    padding:24px 18px!important;
+  }
+  .cf-group input,
+  .cf-group select,
+  .cf-group textarea{
+    padding:12px 14px!important;
+    font-size:.9rem!important;
+  }
+  .cf-group{
+    margin-bottom:14px!important;
+  }
+  .contact-form-box h3{
+    font-size:1.1rem!important;
+    margin-bottom:6px!important;
+  }
+  .form-subtitle{
+    margin-bottom:16px!important;
+  }
+}
+
+/* ── Step cards responsive ── */
+@media(max-width:900px){
+  .casa-steps-grid{
+    grid-template-columns:repeat(2,1fr);
+    gap:14px;
+  }
+}
+@media(max-width:560px){
+  .casa-steps-grid{
+    grid-template-columns:1fr;
+    gap:12px;
+  }
+  .casa-step-card{
+    min-height:auto;
+    padding:20px 18px;
+  }
+  .casa-step-card h3{
+    font-size:.95rem;
+  }
+  .casa-step-card p{
+    font-size:.88rem;
+  }
+}
+
+/* ── Maps embed ── */
+.maps-embed-wrap{
+  margin-top:16px;
+  border-radius:10px;
+  overflow:hidden;
+  box-shadow:0 4px 16px rgba(0,0,0,.25);
+}
+.maps-embed-wrap iframe{
+  display:block;
+  width:100%;
+  border:0;
+}
+@media(max-width:600px){
+  .maps-embed-wrap iframe{
+    height:180px!important;
+  }
+}
+
+/* ── Fade-up animation for step cards ── */
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(20px)}
+  to{opacity:1;transform:translateY(0)}
+}
+.casa-step-card.is-visible{
+  animation:fadeUp .45s ease both;
+}
+.casa-step-card.reveal.d0{animation-delay:0s}
+.casa-step-card.reveal.d1{animation-delay:.08s}
+.casa-step-card.reveal.d2{animation-delay:.16s}
+.casa-step-card.reveal.d3{animation-delay:.24s}
+</style>
 </head>
 <body>
 <a href="https://wa.me/390916255950" class="wa-btn" title="WhatsApp">
@@ -171,7 +306,7 @@
   <div class="section-in">
     <div class="two-cols reverse">
       <div class="col-img reveal">
-        <img src="https://www.valoreunipol.it/wp-content/uploads/2024/01/Valore-UnipolSai_Casa_Assicurazione-Famiglia_2048x1080.jpg" alt="Assicurazione famiglia Palermo" onerror="this.src='https://images.unsplash.com/photo-1511895426328-dc8714191011?w=800'">
+        <img src="assets/images/blog/assicurazione famiglia.webp" alt="Assicurazione famiglia e responsabilità civile Palermo" loading="lazy">
       </div>
       <div class="col-text reveal d1">
         <div class="accent-line" style="background:#27ae60"></div>
@@ -192,8 +327,58 @@
 
 <section class="page-section bg-blue" id="come">
   <div class="section-in">
-    <div class="section-head white"><h2>Come funziona la polizza casa Unipol</h2><div class="section-divider"></div><p style="color:rgba(255,255,255,.75)">Tre passi per proteggere la tua abitazione nel modo giusto</p></div>
-    <div class="steps-grid"><div class="step-card reveal d0"><div class="step-num">1</div><h3>Consulenza gratuita</h3><p>Un nostro consulente analizza la tua abitazione, le esigenze specifiche e il tipo di occupazione (proprietà o affitto) per costruire la copertura ottimale.</p></div><div class="step-card reveal d1"><div class="step-num">2</div><h3>Preventivo su misura</h3><p>Ricevi un preventivo dettagliato con tutte le garanzie spiegate in modo chiaro. Puoi scegliere solo le coperture che ti servono davvero.</p></div><div class="step-card reveal d2"><div class="step-num">3</div><h3>Attivazione immediata</h3><p>La polizza può essere attivata in agenzia a Palermo in Piazza Unità D'Italia 15.</p></div><div class="step-card reveal d3"><div class="step-num">4</div><h3>Assistenza continua</h3><p>Siamo al tuo fianco anche dopo la firma: gestione sinistri, rinnovi, modifiche alla polizza. Non sei mai solo in caso di necessità.</p></div></div>
+    <div class="section-head white">
+      <h2>Come funziona la polizza casa Unipol</h2>
+      <div style="background:#f5a623;height:3px;width:56px;margin:14px auto 16px;border-radius:2px"></div>
+      <p style="color:rgba(255,255,255,.72)">Quattro passi per proteggere la tua abitazione nel modo giusto</p>
+    </div>
+    <div class="casa-steps-grid">
+
+      <div class="casa-step-card reveal d0">
+        <div class="casa-step-top">
+          <span class="casa-step-num">1</span>
+          <div class="casa-step-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="26" height="26"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+          </div>
+        </div>
+        <h3>Analisi esigenze</h3>
+        <p>Il nostro consulente analizza la tua abitazione, il tipo di occupazione e le esigenze specifiche per costruire la copertura più adatta.</p>
+      </div>
+
+      <div class="casa-step-card reveal d1">
+        <div class="casa-step-top">
+          <span class="casa-step-num">2</span>
+          <div class="casa-step-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="26" height="26"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          </div>
+        </div>
+        <h3>Preventivo personalizzato</h3>
+        <p>Ricevi un preventivo dettagliato con tutte le garanzie spiegate chiaramente. Scegli solo le coperture che ti servono davvero, senza sorprese.</p>
+      </div>
+
+      <div class="casa-step-card reveal d2">
+        <div class="casa-step-top">
+          <span class="casa-step-num">3</span>
+          <div class="casa-step-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="26" height="26"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+        </div>
+        <h3>Attivazione rapida</h3>
+        <p>La polizza viene attivata in agenzia a Palermo, Piazza Unità D&rsquo;Italia 15. Procedure semplici, documentazione chiara, operativa immediata.</p>
+      </div>
+
+      <div class="casa-step-card reveal d3">
+        <div class="casa-step-top">
+          <span class="casa-step-num">4</span>
+          <div class="casa-step-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="26" height="26"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.84 2 2 2 0 012.83 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.09 7.91a16 16 0 006 6l.98-.98a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          </div>
+        </div>
+        <h3>Assistenza continua</h3>
+        <p>Siamo al tuo fianco dopo la firma: gestione sinistri, rinnovi, modifiche alla polizza. Non sei mai solo in caso di necessità.</p>
+      </div>
+
+    </div>
   </div>
 </section>
 
@@ -214,8 +399,8 @@
         <svg viewBox="0 0 24 24" fill="#d35400" stroke="none"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
         <a href="https://maps.app.goo.gl/1pdCAauV5kCiYmm87?g_st=ac" target="_blank" style="color:rgba(255,255,255,.85)">Piazza Unità D'Italia 15, 15A-B – 90144 Palermo</a>
       </div>
-      <div style="margin-top:16px;border-radius:10px;overflow:hidden;box-shadow:0 4px 16px rgba(0,0,0,.2)">
-        <iframe src="https://maps.app.goo.gl/1pdCAauV5kCiYmm87?g_st=ac&output=embed" width="100%" height="200" style="border:0;display:block" allowfullscreen loading="lazy"></iframe>
+      <div class="maps-embed-wrap">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3165.012!2d13.3459!3d38.1203!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1319ea64d66c0001%3A0x1234567890abcdef!2sPiazza+Unit%C3%A0+d'Italia+15%2C+90144+Palermo+PA!5e0!3m2!1sit!2sit!4v1700000000000!5m2!1sit!2sit" width="100%" height="220" style="border:0;display:block;border-radius:8px" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
       <div style="margin-top:16px;padding:12px 16px;background:rgba(255,255,255,.1);border-radius:8px;font-size:.8rem;color:rgba(255,255,255,.75);line-height:1.7">
         <strong style="color:#f5a623">Orari</strong><br>
