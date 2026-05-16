@@ -1363,3 +1363,44 @@ header{z-index:400!important;position:sticky!important;top:0}
 }
 .prod-card{overflow:hidden!important}
 .prod-card-body{overflow:hidden!important}
+
+
+/* ══ STICKY MOBILE HEADER ════════════════════════════════════════════════ */
+/* Initial state: header slightly taller/more airy */
+@media(max-width:768px){
+  header{
+    position:sticky;top:0;z-index:400;
+    transition:box-shadow .25s,background .25s;
+  }
+  .hdr-in{
+    height:62px;
+    transition:height .25s,padding .25s;
+  }
+  .logo-main{
+    transition:height .25s;
+  }
+  .logo-unipol,.logo-unisalute{
+    transition:height .25s;
+  }
+
+  /* Compact state when scrolled */
+  header.hdr-compact .hdr-in{
+    height:50px;
+  }
+  header.hdr-compact{
+    box-shadow:0 2px 12px rgba(0,0,0,.15);
+  }
+  header.hdr-compact .logo-main{
+    height:26px!important;
+  }
+  header.hdr-compact .logo-unipol{
+    height:19px!important;
+  }
+  header.hdr-compact .logo-unisalute{
+    height:17px!important;
+  }
+}
+@media(max-width:480px){
+  .hdr-in{height:56px;}
+  header.hdr-compact .hdr-in{height:46px;}
+}
