@@ -64,23 +64,31 @@ document.addEventListener('DOMContentLoaded',function(){
   document.addEventListener('keydown',function(e){if(e.key==='Escape'&&menuOpen)closeMenu();});
 });
 
-document.querySelectorAll('#mobnav a').forEach(a=>a.addEventListener('click',()=>{
-  mo=false;document.getElementById('mobnav').style.display='none';
-  document.querySelectorAll('.ham span').forEach(s=>{s.style.transform='';s.style.opacity=''});
+// Close menu on link click — but NOT on dropdown toggle
+document.querySelectorAll('#mobnav a:not(.mnv-dropdown-toggle)').forEach(a=>a.addEventListener('click',function(){
+  if(this.closest('.mnv-dropdown-toggle'))return;
+  closeMenu();
 }));
 
-// Dropdown Persona nel menu mobile
+// Dropdown Persona nel menu mobile — gestione robusta
 document.addEventListener('DOMContentLoaded', function() {
-  var toggle = document.querySelector('.mnv-dropdown-toggle');
-  if (toggle) {
+  document.querySelectorAll('.mnv-dropdown-toggle').forEach(function(toggle) {
     toggle.addEventListener('click', function(e) {
       e.preventDefault();
+      e.stopPropagation();
       var body = this.nextElementSibling;
       var isOpen = this.classList.contains('open');
+      // Chiudi tutti gli altri dropdown aperti
+      document.querySelectorAll('.mnv-dropdown-toggle.open').forEach(function(other) {
+        if(other !== toggle) {
+          other.classList.remove('open');
+          if(other.nextElementSibling) other.nextElementSibling.classList.remove('open');
+        }
+      });
       this.classList.toggle('open', !isOpen);
-      body.classList.toggle('open', !isOpen);
+      if(body) body.classList.toggle('open', !isOpen);
     });
-  }
+  });
 });
 
 
@@ -89,13 +97,13 @@ function toggleDropdown(btn) {
   var isOpen = btn.classList.contains('open');
   // Chiudi tutti gli altri
   document.querySelectorAll('.mnv-dropdown-toggle.open').forEach(function(b) {
-    b.classList.remove('open');
-    b.nextElementSibling.classList.remove('open');
+    if(b !== btn) {
+      b.classList.remove('open');
+      if(b.nextElementSibling) b.nextElementSibling.classList.remove('open');
+    }
   });
-  if (!isOpen) {
-    btn.classList.add('open');
-    body.classList.add('open');
-  }
+  btn.classList.toggle('open', !isOpen);
+  if(body) body.classList.toggle('open', !isOpen);
 }
 
 // ── FORMSPREE SUCCESS ──
@@ -109,3 +117,34 @@ if(window.location.search.includes('success')){
     setTimeout(function(){msg.remove()},6000);
   });
 }
+
+// ── STICKY MOBILE HEADER ──
+(function(){
+  var hdr = document.querySelector('header');
+  if(!hdr) return;
+  var lastY = 0;
+  var ticking = false;
+  function onScroll(){
+    if(!ticking){
+      requestAnimationFrame(function(){
+        var y = window.scrollY || window.pageYOffset;
+        if(window.innerWidth <= 768){
+          if(y > 40){
+            hdr.classList.add('hdr-compact');
+          } else {
+            hdr.classList.remove('hdr-compact');
+          }
+        } else {
+          hdr.classList.remove('hdr-compact');
+        }
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  // Also handle resize (switching between desktop/mobile)
+  window.addEventListener('resize', function(){
+    if(window.innerWidth > 768) hdr.classList.remove('hdr-compact');
+  }, {passive:true});
+})();
